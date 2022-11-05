@@ -17,7 +17,7 @@ import {AuthModule} from './auth/auth.module'
     AuthModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot([]),
+    StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
