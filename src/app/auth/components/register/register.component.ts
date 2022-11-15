@@ -2,9 +2,13 @@ import {Component, OnInit} from '@angular/core'
 import {FormBuilder, FormGroup, Validators} from '@angular/forms'
 import {select, Store} from '@ngrx/store'
 import {Observable} from 'rxjs'
+import {ErrorMessagesInterface} from 'src/app/shared/types/error-messages.interface'
 import {AuthService} from '../../services/auth.service'
 import {registerAction} from '../../store/actions/register.actions'
-import {isSubmittingSelector} from '../../store/selectors'
+import {
+  isSubmittingSelector,
+  validationErrorsSelector,
+} from '../../store/selectors'
 import {RegisterRequestInterface} from '../../types/register-request.interface'
 
 @Component({
@@ -15,12 +19,9 @@ import {RegisterRequestInterface} from '../../types/register-request.interface'
 export class RegisterComponent implements OnInit {
   form: FormGroup
   isSubmitting$: Observable<boolean>
+  errors$: Observable<ErrorMessagesInterface>
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private store: Store,
-    private authService: AuthService
-  ) {}
+  constructor(private formBuilder: FormBuilder, private store: Store) {}
 
   ngOnInit(): void {
     this.initializeForm()
@@ -37,6 +38,7 @@ export class RegisterComponent implements OnInit {
 
   initializeValues() {
     this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector))
+    this.errors$ = this.store.pipe(select(validationErrorsSelector))
   }
 
   onSubmit() {

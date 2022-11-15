@@ -8,6 +8,7 @@ import {RegisterComponent} from './components/register/register.component'
 import {reducers} from './store/reducers'
 import {AuthService} from './services/auth.service'
 import {RegisterEffect} from './store/effects/register.effect'
+import {ErrorMessagesModule} from '../shared/modules/error-messages/error-messages.module'
 
 const routes: Route[] = [
   {
@@ -23,6 +24,7 @@ const routes: Route[] = [
     ReactiveFormsModule,
     StoreModule.forFeature('auth', reducers),
     EffectsModule.forFeature([RegisterEffect]),
+    ErrorMessagesModule,
   ],
   providers: [AuthService],
 })
