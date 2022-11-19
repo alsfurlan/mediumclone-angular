@@ -9,6 +9,7 @@ import {reducers} from './store/reducers'
 import {AuthService} from './services/auth.service'
 import {RegisterEffect} from './store/effects/register.effect'
 import {ErrorMessagesModule} from '../shared/modules/error-messages/error-messages.module'
+import {PersistanceService} from '../shared/services/persistance.service'
 
 const routes: Route[] = [
   {
@@ -26,6 +27,6 @@ const routes: Route[] = [
     EffectsModule.forFeature([RegisterEffect]),
     ErrorMessagesModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, PersistanceService],
 })
 export class AuthModule {}
