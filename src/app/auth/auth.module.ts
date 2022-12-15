@@ -10,6 +10,7 @@ import {AuthService} from './services/auth.service'
 import {RegisterEffect} from './store/effects/register.effect'
 import {ErrorMessagesModule} from '../shared/modules/error-messages/error-messages.module'
 import {PersistanceService} from '../shared/services/persistance.service'
+import {LoginEffect} from './store/effects/login.effect'
 
 const routes: Route[] = [
   {
@@ -24,7 +25,7 @@ const routes: Route[] = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     StoreModule.forFeature('auth', reducers),
-    EffectsModule.forFeature([RegisterEffect]),
+    EffectsModule.forFeature([RegisterEffect, LoginEffect]),
     ErrorMessagesModule,
   ],
   providers: [AuthService, PersistanceService],
