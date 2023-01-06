@@ -1,3 +1,4 @@
+import {GetCurrentUserEffect} from './store/effects/get-current-user.effect'
 import {CommonModule} from '@angular/common'
 import {NgModule} from '@angular/core'
 import {ReactiveFormsModule} from '@angular/forms'
@@ -30,7 +31,11 @@ const routes: Route[] = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     StoreModule.forFeature('auth', reducers),
-    EffectsModule.forFeature([RegisterEffect, LoginEffect]),
+    EffectsModule.forFeature([
+      RegisterEffect,
+      LoginEffect,
+      GetCurrentUserEffect,
+    ]),
     ErrorMessagesModule,
   ],
   providers: [AuthService, PersistanceService],
