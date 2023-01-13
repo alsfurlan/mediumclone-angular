@@ -1,3 +1,4 @@
+import {RouterModule} from '@angular/router'
 import {HttpClientModule} from '@angular/common/http'
 import {GetFeedEffect} from './store/effects/get-feed.effect'
 import {EffectsModule} from '@ngrx/effects'
@@ -11,6 +12,7 @@ import {reducers} from './store/reducers'
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     EffectsModule.forFeature([GetFeedEffect]),
     StoreModule.forFeature('feed', reducers),
   ],

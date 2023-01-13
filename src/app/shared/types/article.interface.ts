@@ -2,6 +2,7 @@ import { ProfileInterface } from "./profile.interface"
 
 export interface ArticleInterface {
   title: string
+  description: string
   slug: string
   body: string
   createdAt: string
