@@ -1,3 +1,4 @@
+import { PaginationModule } from './../pagination/pagination.module';
 import { LoadingModule } from './../loading/loading.module';
 import { ErrorMessageModule } from './../error-message/error-message.module';
 import {RouterModule} from '@angular/router'
@@ -18,7 +19,8 @@ import {reducers} from './store/reducers'
     EffectsModule.forFeature([GetFeedEffect]),
     StoreModule.forFeature('feed', reducers),
     ErrorMessageModule,
-    LoadingModule
+    LoadingModule,
+    PaginationModule
   ],
   declarations: [FeedComponent],
   exports: [FeedComponent],
