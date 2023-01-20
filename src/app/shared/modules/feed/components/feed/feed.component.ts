@@ -10,6 +10,7 @@ import {getFeedAction} from './../../store/actions/get-feed.action'
 import {Component, Input, OnDestroy, OnInit} from '@angular/core'
 import {select, Store} from '@ngrx/store'
 import {Observable, Subscription, tap} from 'rxjs'
+import queryString from 'query-string'
 
 @Component({
   selector: 'mc-feed',
@@ -17,7 +18,7 @@ import {Observable, Subscription, tap} from 'rxjs'
   styleUrls: ['./feed.component.scss'],
 })
 export class FeedComponent implements OnInit, OnDestroy {
-  @Input('apiUrl') apiUrlProps: string
+  @Input() apiUrl: string
 
   feed$: Observable<GetFeedResponseInterface | null>
   error$: Observable<string | null>
@@ -26,7 +27,6 @@ export class FeedComponent implements OnInit, OnDestroy {
   baseUrl: string
   subscriptions: Subscription
   currentPage: number
-
   constructor(
     private store: Store,
     private router: Router,
@@ -36,7 +36,7 @@ export class FeedComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.initializeValues()
     this.initializeListener()
-    this.fetchData()
+    this.fetchFeed()
   }
 
   ngOnDestroy(): void {
@@ -58,13 +58,23 @@ export class FeedComponent implements OnInit, OnDestroy {
         .pipe(
           tap(({page}: Params) => {
             this.currentPage = +page || 1
+            this.fetchFeed()
           })
         )
         .subscribe()
     )
   }
 
-  fetchData(): void {
-    this.store.dispatch(getFeedAction({url: this.apiUrlProps}))
+  fetchFeed(): void {
+    const {currentPage, limit, apiUrl} = this
+    const offset = currentPage * limit - limit
+    const {url, query} = queryString.parseUrl(apiUrl)
+    const queryParams = queryString.stringify({
+      limit,
+      offset,
+      ...query,
+    })
+    const urlWithQueryParams = `${url}?${queryParams}`
+    this.store.dispatch(getFeedAction({url: urlWithQueryParams}))
   }
 }

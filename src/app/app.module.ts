@@ -14,6 +14,7 @@ import {AppComponent} from './app.component'
 import {AuthModule} from './auth/auth.module'
 import {TopBarModule} from './shared/modules/top-bar/top-bar.module'
 import {AuthInterceptor} from './shared/services/auth-interceptor.service'
+import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,11 +26,12 @@ import {AuthInterceptor} from './shared/services/auth-interceptor.service'
     HttpClientModule,
     ReactiveFormsModule,
     EffectsModule.forRoot([]),
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({router: routerReducer}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
+    StoreRouterConnectingModule.forRoot(),
     TopBarModule,
     GlobalFeedModule,
   ],
