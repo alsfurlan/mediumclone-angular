@@ -1,6 +1,7 @@
-import { PaginationModule } from './../pagination/pagination.module';
-import { LoadingModule } from './../loading/loading.module';
-import { ErrorMessageModule } from './../error-message/error-message.module';
+import {TagListModule} from './../tag-list/tag-list.module'
+import {PaginationModule} from './../pagination/pagination.module'
+import {LoadingModule} from './../loading/loading.module'
+import {ErrorMessageModule} from './../error-message/error-message.module'
 import {RouterModule} from '@angular/router'
 import {HttpClientModule} from '@angular/common/http'
 import {GetFeedEffect} from './store/effects/get-feed.effect'
@@ -20,7 +21,8 @@ import {reducers} from './store/reducers'
     StoreModule.forFeature('feed', reducers),
     ErrorMessageModule,
     LoadingModule,
-    PaginationModule
+    PaginationModule,
+    TagListModule,
   ],
   declarations: [FeedComponent],
   exports: [FeedComponent],
