@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core'
-import { TagType } from '../../types/tag.interface'
+import {TagType} from '../../types/tag.interface'
 
 @Component({
   selector: 'mc-tag-list',
