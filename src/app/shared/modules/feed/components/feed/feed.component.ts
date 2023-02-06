@@ -7,7 +7,15 @@ import {
 } from './../../store/selectors'
 import {GetFeedResponseInterface} from './../../types/get-feed-response.interface'
 import {getFeedAction} from './../../store/actions/get-feed.action'
-import {Component, Input, OnDestroy, OnInit} from '@angular/core'
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core'
 import {select, Store} from '@ngrx/store'
 import {Observable, Subscription, tap} from 'rxjs'
 import queryString from 'query-string'
@@ -17,7 +25,7 @@ import queryString from 'query-string'
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss'],
 })
-export class FeedComponent implements OnInit, OnDestroy {
+export class FeedComponent implements OnInit, OnDestroy, OnChanges {
   @Input() apiUrl: string
 
   feed$: Observable<GetFeedResponseInterface | null>
@@ -27,11 +35,16 @@ export class FeedComponent implements OnInit, OnDestroy {
   baseUrl: string
   subscriptions: Subscription
   currentPage: number
+
   constructor(
     private store: Store,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.fetchFeed()
+  }
 
   ngOnInit(): void {
     this.initializeValues()

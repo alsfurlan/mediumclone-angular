@@ -1,4 +1,6 @@
-import { GlobalFeedModule } from './global-feed/global-feed.module';
+import {TagFeedModule} from './tag-feed/tag-feed.module'
+import {YourFeedModule} from './your-feed/your-feed.module'
+import {GlobalFeedModule} from './global-feed/global-feed.module'
 import {PersistanceService} from 'src/app/shared/services/persistance.service'
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import {NgModule} from '@angular/core'
@@ -14,7 +16,7 @@ import {AppComponent} from './app.component'
 import {AuthModule} from './auth/auth.module'
 import {TopBarModule} from './shared/modules/top-bar/top-bar.module'
 import {AuthInterceptor} from './shared/services/auth-interceptor.service'
-import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
+import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store'
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,6 +36,8 @@ import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
     StoreRouterConnectingModule.forRoot(),
     TopBarModule,
     GlobalFeedModule,
+    YourFeedModule,
+    TagFeedModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
