@@ -28,6 +28,7 @@ const feedReducer = createReducer(
   on(getFeedFailureAction, (state) => ({
     ...state,
     isLoading: false,
+    data: null,
   })),
   on(routerNavigationAction, () => initialState)
 )
