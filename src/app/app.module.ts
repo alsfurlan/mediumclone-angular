@@ -17,6 +17,7 @@ import {AuthModule} from './auth/auth.module'
 import {TopBarModule} from './shared/modules/top-bar/top-bar.module'
 import {AuthInterceptor} from './shared/services/auth-interceptor.service'
 import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store'
+import {ArticleModule} from './article/article.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,6 +39,7 @@ import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store'
     GlobalFeedModule,
     YourFeedModule,
     TagFeedModule,
+    ArticleModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
