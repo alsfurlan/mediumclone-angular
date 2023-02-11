@@ -10,6 +10,7 @@ import {
   isLoadingSelector,
 } from '../store/selectors'
 import {currentUserSelector} from 'src/app/auth/store/selectors'
+import {deleteArticleAction} from '../store/actions/delete-article.actions'
 
 @Component({
   selector: 'mc-article',
@@ -51,5 +52,10 @@ export class ArticleComponent implements OnInit {
   fetchData() {
     const {slug} = this
     this.store.dispatch(getArticleAction({slug}))
+  }
+
+  deleteArticle() {
+    const {slug} = this
+    this.store.dispatch(deleteArticleAction({slug}))
   }
 }
