@@ -18,6 +18,7 @@ import {TopBarModule} from './shared/modules/top-bar/top-bar.module'
 import {AuthInterceptor} from './shared/services/auth-interceptor.service'
 import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store'
 import {ArticleModule} from './article/article.module'
+import {CreateArticleModule} from './create-article/create-article.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,6 +40,7 @@ import {ArticleModule} from './article/article.module'
     GlobalFeedModule,
     YourFeedModule,
     TagFeedModule,
+    CreateArticleModule,
     ArticleModule,
   ],
   providers: [
