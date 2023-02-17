@@ -4,4 +4,15 @@ import {Component} from '@angular/core'
   selector: 'mc-create-article',
   templateUrl: './create-article.component.html',
 })
-export class CreateArticleComponent {}
+export class CreateArticleComponent {
+  initialValues = {
+    title: 'Foo',
+    description: 'Bar',
+    body: 'Baz',
+    tagList: ['123'],
+  }
+
+  onSubmit(event) {
+    console.log(event)
+  }
+}
