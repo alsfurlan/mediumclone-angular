@@ -1,5 +1,6 @@
 <mc-article-form
   [initialValues]="initialValues"
-  [isSubmitting]="false"
+  [isSubmitting]="isSubmitting$ | async"
+  [errors]="errors$ | async"
   (articleSubmit)="onSubmit($event)"
 ></mc-article-form>
