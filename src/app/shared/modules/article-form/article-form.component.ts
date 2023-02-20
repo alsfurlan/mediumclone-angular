@@ -36,6 +36,10 @@ export class ArticleFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.articleSubmit.emit(this.form.value)
+    const {tagList, ...articleInput} = this.form.value
+    this.articleSubmit.emit({
+      ...articleInput,
+      tagList: tagList.split(' '),
+    })
   }
 }

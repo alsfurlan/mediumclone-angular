@@ -5,6 +5,7 @@ import {
 } from './actions/create-article.action'
 import {CreateArticleStateInterface} from './../types/create-article-state.interface'
 import {Action, createReducer, on} from '@ngrx/store'
+import {routerNavigationAction} from '@ngrx/router-store'
 
 const initialState: CreateArticleStateInterface = {
   errors: null,
@@ -17,13 +18,13 @@ const createArticleReducer = createReducer(
   on(createArticleSuccessAction, (state, action) => ({
     ...state,
     isSubmitting: false,
-    errors: null    
   })),
   on(createArticleFailureAction, (state, {errors}) => ({
     ...state,
     isSubmitting: false,
     errors,
-  }))
+  })),
+  on(routerNavigationAction, () => initialState)
 )
 
 export function reducers(state: CreateArticleStateInterface, action: Action) {

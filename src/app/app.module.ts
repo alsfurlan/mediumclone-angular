@@ -19,6 +19,7 @@ import {AuthInterceptor} from './shared/services/auth-interceptor.service'
 import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store'
 import {ArticleModule} from './article/article.module'
 import {CreateArticleModule} from './create-article/create-article.module'
+import {EditArticleModule} from './edit-article/edit-article.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -41,6 +42,7 @@ import {CreateArticleModule} from './create-article/create-article.module'
     YourFeedModule,
     TagFeedModule,
     CreateArticleModule,
+    EditArticleModule,
     ArticleModule,
   ],
   providers: [
