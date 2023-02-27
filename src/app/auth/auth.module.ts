@@ -1,3 +1,4 @@
+import {UpdateCurrentUserEffect} from './store/effects/update-current-user.effect'
 import {GetCurrentUserEffect} from './store/effects/get-current-user.effect'
 import {CommonModule} from '@angular/common'
 import {NgModule} from '@angular/core'
@@ -35,6 +36,7 @@ const routes: Route[] = [
       RegisterEffect,
       LoginEffect,
       GetCurrentUserEffect,
+      UpdateCurrentUserEffect,
     ]),
     ErrorMessagesModule,
   ],

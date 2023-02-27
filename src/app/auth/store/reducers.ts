@@ -1,3 +1,4 @@
+import {updateCurrentUserSuccessAction} from './actions/update-current-user.action'
 import {
   getCurrentUserAction,
   getCurrentUserFailureAction,
@@ -94,6 +95,10 @@ const authReducer = createReducer(
     isLoading: false,
     isLoggedIn: false,
     currentUser: null,
+  })),
+  on(updateCurrentUserSuccessAction, (state, {currentUser}) => ({
+    ...state,
+    currentUser,
   }))
 )
 

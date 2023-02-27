@@ -1,3 +1,4 @@
+import {CurrentUserInputInterface} from './../../shared/types/current-user-input.interface'
 import {HttpClient} from '@angular/common/http'
 import {Injectable} from '@angular/core'
 import {map, Observable} from 'rxjs'
@@ -30,6 +31,14 @@ export class AuthService {
   getCurrentUser(): Observable<CurrentUserInterface> {
     return this.http
       .get<AuthResponseInterface>(`${environment.apiUrl}/user`)
+      .pipe(map(this.getUser))
+  }
+
+  updateCurrentUser(
+    user: CurrentUserInputInterface
+  ): Observable<CurrentUserInterface> {
+    return this.http
+      .put<AuthResponseInterface>(`${environment.apiUrl}/user`, {user})
       .pipe(map(this.getUser))
   }
 }
