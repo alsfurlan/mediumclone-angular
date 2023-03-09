@@ -12,20 +12,22 @@ import {NgModule} from '@angular/core'
 import {FeedComponent} from './components/feed/feed.component'
 import {StoreModule} from '@ngrx/store'
 import {reducers} from './store/reducers'
+import { FavoriteModule } from "../favorite/favorite.module";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    EffectsModule.forFeature([GetFeedEffect]),
-    StoreModule.forFeature('feed', reducers),
-    ErrorMessageModule,
-    LoadingModule,
-    PaginationModule,
-    TagListModule,
-  ],
-  declarations: [FeedComponent],
-  exports: [FeedComponent],
-  providers: [FeedService],
+    declarations: [FeedComponent],
+    exports: [FeedComponent],
+    providers: [FeedService],
+    imports: [
+        CommonModule,
+        RouterModule,
+        EffectsModule.forFeature([GetFeedEffect]),
+        StoreModule.forFeature('feed', reducers),
+        ErrorMessageModule,
+        LoadingModule,
+        PaginationModule,
+        TagListModule,
+        FavoriteModule
+    ]
 })
 export class FeedModule {}

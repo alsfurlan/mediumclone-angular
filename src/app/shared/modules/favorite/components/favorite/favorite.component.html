@@ -1,0 +1,11 @@
+<button
+  class="btn btn-sm"
+  [ngClass]="{
+    'btn-primary': favorited,
+    'btn-outline-primary': !favorited
+  }"
+  (click)="handleLike()"
+>
+  <i class="ion-heart"></i>
+  {{ favoritesCount }}
+</button>
