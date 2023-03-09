@@ -4,6 +4,8 @@ import {NgModule} from '@angular/core'
 import {SettingsComponent} from './components/settings/settings.component'
 import {StoreModule} from '@ngrx/store'
 import {reducers} from './store/reducers'
+import {ErrorMessagesModule} from '../shared/modules/error-messages/error-messages.module'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 
 const routes: Route[] = [
   {
@@ -13,11 +15,14 @@ const routes: Route[] = [
 ]
 
 @NgModule({
+  declarations: [SettingsComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('settings', reducers),
+    FormsModule,
+    ReactiveFormsModule,
+    ErrorMessagesModule,
   ],
-  declarations: [SettingsComponent],
 })
 export class SettingsModule {}

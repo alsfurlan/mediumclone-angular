@@ -14,6 +14,7 @@ import {ErrorMessagesModule} from '../shared/modules/error-messages/error-messag
 import {PersistanceService} from '../shared/services/persistance.service'
 import {LoginEffect} from './store/effects/login.effect'
 import {LoginComponent} from './components/login/login.component'
+import {LogoutEffect} from './store/effects/logout.effect'
 
 const routes: Route[] = [
   {
@@ -37,6 +38,7 @@ const routes: Route[] = [
       LoginEffect,
       GetCurrentUserEffect,
       UpdateCurrentUserEffect,
+      LogoutEffect,
     ]),
     ErrorMessagesModule,
   ],
