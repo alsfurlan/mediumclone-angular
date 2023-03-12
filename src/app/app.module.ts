@@ -1,3 +1,4 @@
+import {ProfileModule} from './shared/modules/profile/profile.module'
 import {TagFeedModule} from './tag-feed/tag-feed.module'
 import {YourFeedModule} from './your-feed/your-feed.module'
 import {GlobalFeedModule} from './global-feed/global-feed.module'
@@ -20,7 +21,7 @@ import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store'
 import {ArticleModule} from './article/article.module'
 import {CreateArticleModule} from './create-article/create-article.module'
 import {EditArticleModule} from './edit-article/edit-article.module'
-import { SettingsModule } from './settings/settings.module'
+import {SettingsModule} from './settings/settings.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -46,6 +47,7 @@ import { SettingsModule } from './settings/settings.module'
     EditArticleModule,
     ArticleModule,
     SettingsModule,
+    ProfileModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},

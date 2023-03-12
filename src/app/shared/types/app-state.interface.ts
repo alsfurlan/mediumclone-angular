@@ -1,3 +1,4 @@
+import {ProfileStateInterface} from './../modules/profile/types/profile-state.interface'
 import {SettingsStateInterface} from './../../settings/types/settings-state.interface'
 import {EditArticleStateInterface} from './../../edit-article/types/edit-article-state.interface'
 import {CreateArticleStateInterface} from './../../create-article/types/create-article-state.interface'
@@ -14,4 +15,5 @@ export interface AppStateInterface {
   createArticle: CreateArticleStateInterface
   editArticle: EditArticleStateInterface
   settings: SettingsStateInterface
+  profile: ProfileStateInterface
 }
