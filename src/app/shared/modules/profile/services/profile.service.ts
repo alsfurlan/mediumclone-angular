@@ -1,5 +1,5 @@
 import {environment} from './../../../../../environments/environment.prod'
-import {GetProfileResponseInterface} from './../types/get-profile-response.interface'
+import {ProfileResponseInterface} from '../types/profile-response.interface'
 import {map, Observable} from 'rxjs'
 import {HttpClient} from '@angular/common/http'
 import {Injectable} from '@angular/core'
@@ -11,7 +11,7 @@ export class ProfileService {
 
   getProfile(slug: string): Observable<ProfileInterface> {
     return this.http
-      .get<GetProfileResponseInterface>(
+      .get<ProfileResponseInterface>(
         `${environment.apiUrl}/profiles/${slug}`
       )
       .pipe(map(({profile}) => profile))

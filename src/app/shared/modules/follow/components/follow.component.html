@@ -1,0 +1,12 @@
+<button
+  class="btn btn-sm action-btn"
+  [ngClass]="{
+    'btn-secondary': following,
+    'btn-outline-secondary': !following,
+    disabled: (isSubmitting$ | async) === true
+  }"
+  (click)="handleFollow()"
+>
+  <i class="ion-plus-round"></i>
+  {{ following ? 'Unfollow' : 'Follow' }} {{ profile.username }}
+</button>

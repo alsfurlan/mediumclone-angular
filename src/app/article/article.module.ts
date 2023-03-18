@@ -12,6 +12,7 @@ import {LoadingModule} from '../shared/modules/loading/loading.module'
 import {ErrorMessageModule} from '../shared/modules/error-message/error-message.module'
 import {TagListModule} from '../shared/modules/tag-list/tag-list.module'
 import {ArticleService} from './services/article.service'
+import {FollowModule} from '../shared/modules/follow/follow.module'
 
 const routes = [
   {
@@ -31,6 +32,7 @@ const routes = [
     LoadingModule,
     ErrorMessageModule,
     TagListModule,
+    FollowModule,
   ],
 })
 export class ArticleModule {}

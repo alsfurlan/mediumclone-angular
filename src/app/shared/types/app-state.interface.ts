@@ -1,3 +1,4 @@
+import { FollowStateInterface } from './../modules/follow/store/state';
 import {ProfileStateInterface} from './../modules/profile/types/profile-state.interface'
 import {SettingsStateInterface} from './../../settings/types/settings-state.interface'
 import {EditArticleStateInterface} from './../../edit-article/types/edit-article-state.interface'
@@ -16,4 +17,5 @@ export interface AppStateInterface {
   editArticle: EditArticleStateInterface
   settings: SettingsStateInterface
   profile: ProfileStateInterface
+  follow: FollowStateInterface
 }

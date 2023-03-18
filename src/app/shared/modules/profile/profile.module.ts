@@ -7,7 +7,8 @@ import {CommonModule} from '@angular/common'
 import {NgModule} from '@angular/core'
 import {ProfileComponent} from './components/profile/profile.component'
 import {StoreModule} from '@ngrx/store'
-import { FeedModule } from "../feed/feed.module";
+import {FeedModule} from '../feed/feed.module'
+import {FollowModule} from '../follow/follow.module'
 
 const routes: Route[] = [
   {
@@ -21,14 +22,15 @@ const routes: Route[] = [
 ]
 
 @NgModule({
-    declarations: [ProfileComponent],
-    providers: [ProfileService],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        StoreModule.forFeature('profile', reducers),
-        EffectsModule.forFeature([GetProfileEffect]),
-        FeedModule
-    ]
+  declarations: [ProfileComponent],
+  providers: [ProfileService],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    StoreModule.forFeature('profile', reducers),
+    EffectsModule.forFeature([GetProfileEffect]),
+    FeedModule,
+    FollowModule,
+  ],
 })
 export class ProfileModule {}

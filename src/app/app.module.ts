@@ -1,3 +1,4 @@
+import {FollowModule} from './shared/modules/follow/follow.module'
 import {ProfileModule} from './shared/modules/profile/profile.module'
 import {TagFeedModule} from './tag-feed/tag-feed.module'
 import {YourFeedModule} from './your-feed/your-feed.module'
@@ -48,6 +49,7 @@ import {SettingsModule} from './settings/settings.module'
     ArticleModule,
     SettingsModule,
     ProfileModule,
+    FollowModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},

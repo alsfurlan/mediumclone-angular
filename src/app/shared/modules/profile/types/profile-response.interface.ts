@@ -1,5 +1,5 @@
 import {ProfileInterface} from './profile.interface'
 
-export interface GetProfileResponseInterface {
+export interface ProfileResponseInterface {
   profile: ProfileInterface
 }
