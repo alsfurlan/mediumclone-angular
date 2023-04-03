@@ -1,5 +1,5 @@
 import {ActivatedRoute} from '@angular/router'
-import {getArticleAction} from './../store/actions/get-article.actions'
+import {getArticleAction} from './../../store/actions/get-article.actions'
 import {Component, OnInit} from '@angular/core'
 import {select, Store} from '@ngrx/store'
 import {combineLatest, map, Observable} from 'rxjs'
@@ -8,9 +8,9 @@ import {
   articleSelector,
   errorSelector,
   isLoadingSelector,
-} from '../store/selectors'
+} from '../../store/selectors'
 import {currentUserSelector} from 'src/app/auth/store/selectors'
-import {deleteArticleAction} from '../store/actions/delete-article.actions'
+import {deleteArticleAction} from '../../store/actions/delete-article.actions'
 
 @Component({
   selector: 'mc-article',

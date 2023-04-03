@@ -1,5 +1,5 @@
 import {DeleteArticleEffect} from './store/effects/delete-article.effect'
-import {ArticleComponent} from './components/article.component'
+import {ArticleComponent} from './components/article/article.component'
 import {GetArticleEffect} from './store/effects/get-article.effect'
 import {ArticleService as SharedArticleService} from './../shared/services/article.service'
 import {CommonModule} from '@angular/common'
@@ -13,6 +13,8 @@ import {ErrorMessageModule} from '../shared/modules/error-message/error-message.
 import {TagListModule} from '../shared/modules/tag-list/tag-list.module'
 import {ArticleService} from './services/article.service'
 import {FollowModule} from '../shared/modules/follow/follow.module'
+import {ArticleCommentComponent} from './components/article-comment/article-comment.component'
+import {ArticleCommentsComponent} from './components/article-comments/article-comments.component'
 
 const routes = [
   {
@@ -22,7 +24,11 @@ const routes = [
 ]
 
 @NgModule({
-  declarations: [ArticleComponent],
+  declarations: [
+    ArticleComponent,
+    ArticleCommentsComponent,
+    ArticleCommentComponent,
+  ],
   providers: [ArticleService, SharedArticleService],
   imports: [
     CommonModule,

@@ -1,0 +1,17 @@
+<div class="card" *ngIf="comment">
+  <div class="card-block">
+    <p class="card-text">{{ comment.body }}</p>
+  </div>
+  <div class="card-footer">
+    <a class="comment-author">
+      <img [src]="comment.author.image" class="comment-author-img" />
+    </a>
+    <a class="comment-author" [routerLink]=""
+      >&nbsp; {{ comment.author.username }}</a
+    >
+    <span class="date-posted">{{ comment.createdAt | date }}</span>
+    <span class="mod-options">
+      <i class="ion-trash-a"></i>
+    </span>
+  </div>
+</div>
