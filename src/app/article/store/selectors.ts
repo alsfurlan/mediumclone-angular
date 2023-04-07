@@ -21,3 +21,8 @@ export const articleSelector = createSelector(
   articleFeatureSelector,
   (state) => state.data
 )
+
+export const commentsSelector = createSelector(
+  articleFeatureSelector,
+  (state) => state.comments
+)

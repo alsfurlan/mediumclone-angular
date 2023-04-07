@@ -17,7 +17,7 @@ import {deleteArticleAction} from '../../store/actions/delete-article.actions'
   templateUrl: './article.component.html',
 })
 export class ArticleComponent implements OnInit {
-  private slug: string = ''
+  slug: string = ''
 
   article$: Observable<ArticleInterface>
   isLoading$: Observable<boolean>

@@ -6,11 +6,16 @@ import {
   getArticleFailureAction,
   getArticleSuccessAction,
 } from './actions/get-article.actions'
+import {
+  getCommentsFailureAction,
+  getCommentsSuccessAction,
+} from './actions/get-comments.actions'
 
 const initialState: ArticleStateInterface = {
   data: null,
   error: null,
   isLoading: false,
+  comments: null,
 }
 
 const articleReducer = createReducer(
@@ -27,6 +32,8 @@ const articleReducer = createReducer(
     isLoading: false,
     data: null,
   })),
+  on(getCommentsSuccessAction, (state, {comments}) => ({...state, comments})),
+  on(getCommentsFailureAction, (state) => ({...state, comments: null})),
   on(routerNavigationAction, () => initialState)
 )
 

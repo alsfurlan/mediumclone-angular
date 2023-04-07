@@ -1,4 +1,4 @@
-import {ArticleCommentInterface} from '../../types/article-comment.interface'
+import {CommentInterface} from '../../types/comment.interface'
 import {Component, Input} from '@angular/core'
 
 @Component({
@@ -7,5 +7,5 @@ import {Component, Input} from '@angular/core'
 })
 export class ArticleCommentComponent {
   @Input()
-  comment: ArticleCommentInterface
+  comment: CommentInterface
 }

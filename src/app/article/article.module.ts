@@ -15,6 +15,8 @@ import {ArticleService} from './services/article.service'
 import {FollowModule} from '../shared/modules/follow/follow.module'
 import {ArticleCommentComponent} from './components/article-comment/article-comment.component'
 import {ArticleCommentsComponent} from './components/article-comments/article-comments.component'
+import {GetCommentsEffect} from './store/effects/get-comments.effect'
+import {CommentService} from './services/comment.service'
 
 const routes = [
   {
@@ -29,12 +31,16 @@ const routes = [
     ArticleCommentsComponent,
     ArticleCommentComponent,
   ],
-  providers: [ArticleService, SharedArticleService],
+  providers: [ArticleService, SharedArticleService, CommentService],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('article', reducers),
-    EffectsModule.forFeature([GetArticleEffect, DeleteArticleEffect]),
+    EffectsModule.forFeature([
+      GetArticleEffect,
+      DeleteArticleEffect,
+      GetCommentsEffect,
+    ]),
     LoadingModule,
     ErrorMessageModule,
     TagListModule,
