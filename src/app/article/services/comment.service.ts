@@ -16,4 +16,10 @@ export class CommentService {
       )
       .pipe(map(({comments}) => comments))
   }
+
+  deleteComment(slug: string, id: number): Observable<{}> {
+    return this.httpClient.delete<{}>(
+      `${environment.apiUrl}/articles/${slug}/comments/${id}`
+    )
+  }
 }

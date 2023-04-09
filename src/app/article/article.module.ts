@@ -17,6 +17,7 @@ import {ArticleCommentComponent} from './components/article-comment/article-comm
 import {ArticleCommentsComponent} from './components/article-comments/article-comments.component'
 import {GetCommentsEffect} from './store/effects/get-comments.effect'
 import {CommentService} from './services/comment.service'
+import {DeleteCommentEffect} from './store/effects/delete-comment.effect'
 
 const routes = [
   {
@@ -40,6 +41,7 @@ const routes = [
       GetArticleEffect,
       DeleteArticleEffect,
       GetCommentsEffect,
+      DeleteCommentEffect,
     ]),
     LoadingModule,
     ErrorMessageModule,

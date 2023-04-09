@@ -10,7 +10,7 @@
       >&nbsp; {{ comment.author.username }}</a
     >
     <span class="date-posted">{{ comment.createdAt | date }}</span>
-    <span class="mod-options">
+    <span class="mod-options" (click)="onDelete()">
       <i class="ion-trash-a"></i>
     </span>
   </div>

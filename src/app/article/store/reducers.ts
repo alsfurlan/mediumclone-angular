@@ -10,6 +10,7 @@ import {
   getCommentsFailureAction,
   getCommentsSuccessAction,
 } from './actions/get-comments.actions'
+import {deleteCommentSuccessAction} from './actions/delete-comment.actions'
 
 const initialState: ArticleStateInterface = {
   data: null,
@@ -34,6 +35,10 @@ const articleReducer = createReducer(
   })),
   on(getCommentsSuccessAction, (state, {comments}) => ({...state, comments})),
   on(getCommentsFailureAction, (state) => ({...state, comments: null})),
+  on(deleteCommentSuccessAction, (state, action) => ({
+    ...state,
+    comments: state.comments?.filter((comment) => comment.id !== action.id),
+  })),
   on(routerNavigationAction, () => initialState)
 )
 
