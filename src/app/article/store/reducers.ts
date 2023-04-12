@@ -11,11 +11,17 @@ import {
   getCommentsSuccessAction,
 } from './actions/get-comments.actions'
 import {deleteCommentSuccessAction} from './actions/delete-comment.actions'
+import {
+  postCommentAction,
+  postCommentSuccessAction,
+  postCommentFailureAction,
+} from './actions/post-comment.actions'
 
 const initialState: ArticleStateInterface = {
   data: null,
   error: null,
   isLoading: false,
+  isPostingComment: false,
   comments: null,
 }
 
@@ -38,6 +44,19 @@ const articleReducer = createReducer(
   on(deleteCommentSuccessAction, (state, action) => ({
     ...state,
     comments: state.comments?.filter((comment) => comment.id !== action.id),
+  })),
+  on(postCommentAction, (state) => ({
+    ...state,
+    isPostingComment: true,
+  })),
+  on(postCommentSuccessAction, (state, action) => ({
+    ...state,
+    isPostingComment: false,
+    comments: [...state.comments, action.comment],
+  })),
+  on(postCommentFailureAction, (state) => ({
+    ...state,
+    isPostingComment: false,
   })),
   on(routerNavigationAction, () => initialState)
 )

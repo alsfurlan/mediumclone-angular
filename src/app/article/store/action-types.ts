@@ -14,4 +14,8 @@ export enum ActionTypes {
   DELETE_COMMENT = '[Article] Delete comment',
   DELETE_COMMENT_SUCCESS = '[Article] Delete comment with success',
   DELETE_COMMENT_FAILURE = '[Article] Delete comment with failure',
+
+  POST_COMMENT = '[Article] Post a comment',
+  POST_COMMENT_SUCCESS = '[Article] Post a comment with success',
+  POST_COMMENT_FAILURE = '[Article] Post a comment with failure',
 }

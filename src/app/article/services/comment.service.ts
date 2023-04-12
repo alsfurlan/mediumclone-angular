@@ -4,6 +4,8 @@ import {Observable, map} from 'rxjs'
 import {CommentInterface} from '../types/comment.interface'
 import {environment} from 'src/environments/environment'
 import {CommentsResponseInterface} from '../types/comments-response.interface'
+import {CommentResponseInterface} from '../types/comment-response.interface'
+import {PostComment} from '../types/post-comment.interface'
 
 @Injectable()
 export class CommentService {
@@ -11,15 +13,23 @@ export class CommentService {
 
   getComments(slug: string): Observable<CommentInterface[]> {
     return this.httpClient
-      .get<CommentsResponseInterface>(
-        `${environment.apiUrl}/articles/${slug}/comments`
-      )
+      .get<CommentsResponseInterface>(this.getUrl(slug))
       .pipe(map(({comments}) => comments))
   }
 
-  deleteComment(slug: string, id: number): Observable<{}> {
-    return this.httpClient.delete<{}>(
-      `${environment.apiUrl}/articles/${slug}/comments/${id}`
-    )
+  postComment(
+    slug: string,
+    comment: PostComment
+  ): Observable<CommentInterface> {
+    return this.httpClient
+      .post<CommentResponseInterface>(this.getUrl(slug), {comment})
+      .pipe(map(({comment}) => comment))
   }
+
+  deleteComment(slug: string, id: number): Observable<{}> {
+    return this.httpClient.delete<{}>(this.getUrl(slug, id))
+  }
+
+  getUrl = (slug, id: number | string = '') =>
+    `${environment.apiUrl}/articles/${slug}/comments/${id}`
 }

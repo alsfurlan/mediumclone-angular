@@ -1,0 +1,20 @@
+<form class="card comment-form" [formGroup]="form" (submit)="postComment()">
+  <fieldset [disabled]="isPostingComment$ | async">
+    <div class="card-block">
+      <textarea
+        rows="3"
+        class="form-control"
+        placeholder="Write a comment..."
+        formControlName="comment"
+      ></textarea>
+    </div>
+    <div class="card-footer">
+      <img
+        alt="Author"
+        class="comment-author-img"
+        [src]="(currentUser$ | async)?.image"
+      />
+      <button class="btn btn-sm btn-primary" type="submit">Post Comment</button>
+    </div>
+  </fieldset>
+</form>

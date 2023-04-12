@@ -3,6 +3,7 @@ import {CommentInterface} from './comment.interface'
 
 export interface ArticleStateInterface {
   isLoading: boolean
+  isPostingComment: boolean
   error: string | null
   data: ArticleInterface | null
   comments: CommentInterface[]

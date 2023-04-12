@@ -26,3 +26,8 @@ export const commentsSelector = createSelector(
   articleFeatureSelector,
   (state) => state.comments
 )
+
+export const isPostingCommentSelector = createSelector(
+  articleFeatureSelector,
+  (state) => state.isPostingComment
+)

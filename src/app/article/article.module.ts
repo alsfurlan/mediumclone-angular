@@ -15,9 +15,10 @@ import {ArticleService} from './services/article.service'
 import {FollowModule} from '../shared/modules/follow/follow.module'
 import {ArticleCommentComponent} from './components/article-comment/article-comment.component'
 import {ArticleCommentsComponent} from './components/article-comments/article-comments.component'
-import {GetCommentsEffect} from './store/effects/get-comments.effect'
 import {CommentService} from './services/comment.service'
-import {DeleteCommentEffect} from './store/effects/delete-comment.effect'
+import {ArticleCommentFormComponent} from './components/article-comment-form/article-comment-form.component'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
+import {effects} from './store/effects/effects'
 
 const routes = [
   {
@@ -31,18 +32,16 @@ const routes = [
     ArticleComponent,
     ArticleCommentsComponent,
     ArticleCommentComponent,
+    ArticleCommentFormComponent,
   ],
   providers: [ArticleService, SharedArticleService, CommentService],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('article', reducers),
-    EffectsModule.forFeature([
-      GetArticleEffect,
-      DeleteArticleEffect,
-      GetCommentsEffect,
-      DeleteCommentEffect,
-    ]),
+    EffectsModule.forFeature(effects),
+    FormsModule,
+    ReactiveFormsModule,
     LoadingModule,
     ErrorMessageModule,
     TagListModule,
